@@ -1,0 +1,38 @@
+{% set version = "5.1.0" %}
+
+package:
+  name: traitsui
+  version: "5.1.0"
+
+source:
+  fn: traitsui-{{ version }}.tar.bz2
+  url: https://pypi.io/packages/source/t/traitsui/traitsui-{{ version }}.tar.bz2
+  md5: 5c24ecc93a55d7f42a5253d068cde7e8
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pyface
+    - traits
+  run:
+    - python
+    - pyface
+    - traits
+
+test:
+  imports:
+    - traitsui
+
+about:
+  home: http://docs.enthought.com/traitsui/
+  license: BSD 3-clause
+  summary: TraitsUI - Traits-capable windowing framework
+
+extra:
+  recipe-maintainers:
+    - grlee77
